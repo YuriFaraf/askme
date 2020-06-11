@@ -6,7 +6,7 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
 
   ALLOWED_USERNAME = /\A[a-z\d_]+\z/i
-  ALLOWED_EMAIL = /\A[a-z\d_+.\-]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  ALLOWED_EMAIL = /.+@.+\..+/i
 
   attr_accessor :password
 
