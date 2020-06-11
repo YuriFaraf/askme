@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates_presence_of :password, on: :create
   validates_confirmation_of :password
 
-  before_validation :username_downcase
+  before_validation :username_downcase, :email_downcase
   before_save :encrypt_password
 
   def self.authenticate(email, password)
@@ -48,6 +48,12 @@ class User < ApplicationRecord
           OpenSSL::PKCS5.pbkdf2_hmac(self.password, self.password_salt, ITERATIONS, DIGEST.length, DIGEST)
       )
     end
+  end
+
+  private
+
+  def email_downcase
+    self.email = email.downcase
   end
 
   def username_downcase
