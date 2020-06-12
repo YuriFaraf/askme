@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to user_path(@question.user), notice: 'Вопрос сохранён.'
+      redirect_to user_path(@question.user), notice: 'Вопрос успешно сохранён.'
     else
       render :edit
     end

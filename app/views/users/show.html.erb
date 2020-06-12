@@ -41,9 +41,14 @@
 
 <div class="column-3-4">
   <div class="user-questions buffer-both">
-    <h3 class="title-small user-statistics">
-      Пользователю задали <%= @questions.length %> <%= sklonyator(@questions.length,'вопрос','вопроса','вопросов' ) %>:
-    </h3>
+    <div class="buffer-left user-statistics">
+      <h3 class="title-small">
+        Пользователю задали <%= @questions.length %> <%= sklonyator(@questions.length,'вопрос','вопроса','вопросов' ) %>:
+      </h3>
+      <p class="text-medium">
+        Он ответил на <%= answered_questions(@questions) %>.
+      </p>
+    </div>
     <div class="questions-list">
       <% @questions.each do |question| %>
         <%= render partial: 'questions/question', object: question %>
