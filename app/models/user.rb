@@ -53,10 +53,10 @@ class User < ApplicationRecord
   private
 
   def email_downcase
-    self.email = email ? email.downcase : nil
+    self.email = email&.downcase
   end
 
   def username_downcase
-    self.username = username ? username.downcase : nil
+    self.username = username&.downcase
   end
 end
