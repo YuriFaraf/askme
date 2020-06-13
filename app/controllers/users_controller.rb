@@ -37,6 +37,8 @@ class UsersController < ApplicationController
   def show
     @questions = @user.questions.order(created_at: :desc)
 
+    @answers = @questions.map(&:answer).compact
+
     @new_question = @user.questions.build
   end
 
