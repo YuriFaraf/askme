@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :load_user, except: [:index, :new, :create]
   before_action :authorize_user, except: [:index, :new, :create, :show]
 
@@ -37,6 +36,7 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    @user.questions.destroy_all
     @user.destroy
     flash[:success] = "Пользователь удален."
     redirect_to root_path
