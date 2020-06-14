@@ -1,5 +1,5 @@
 <div class="container content-wrapper buffer-both">
-  <h1 class="title-medium">Править профиль</h1>
+  <h1 class="title-medium">Настройки профиля</h1>
 
   <div class="column-1-2">
     <%= form_for(@user) do |f| %>
@@ -14,17 +14,17 @@
       <% end %>
 
       <div class="form-field">
-        <%= f.label :username, class: 'form-label' %>
+        <%= f.label 'Никнейм:', class: 'form-label' %>
         <%= f.text_field :username, class: 'form-text-field' %>
       </div>
 
       <div class="form-field">
-        <%= f.label 'Ваше имя', class: 'form-label' %>
+        <%= f.label 'Ваше имя:', class: 'form-label' %>
         <%= f.text_field :name, class: 'form-text-field' %>
       </div>
 
       <div class="form-field">
-        <%= f.label 'URL вашей аватарки', class: 'form-label' %>
+        <%= f.label 'URL вашей аватарки:', class: 'form-label' %>
         <%= f.text_field :avatar_url, class: 'form-text-field' %>
       </div>
 
@@ -33,12 +33,12 @@
       </div>
 
       <div class="form-field">
-        <%= f.label :password, class: 'form-label' %>
+        <%= f.label 'Пароль:', class: 'form-label' %>
         <%= f.password_field :password, class: 'form-text-field' %>
       </div>
 
       <div class="form-field">
-        <%= f.label :password_confirmation, class: 'form-label' %>
+        <%= f.label 'Пароль, ещё раз:', class: 'form-label' %>
         <%= f.password_field :password_confirmation, class: 'form-text-field' %>
       </div>
 
@@ -46,5 +46,15 @@
         <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
       </div>
     <% end %>
+
+    <div class="buffer-top-large">
+      <%=
+        link_to "Удалить профиль",
+                @user,
+                method: :delete,
+                data: { confirm: "Вы уверены?"},
+                class: 'button button-gray button-small'
+      %>
+    </div>
   </div>
 </div>
