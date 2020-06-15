@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   ALLOWED_USERNAME = /\A[a-z\d_]+\z/
   ALLOWED_EMAIL = /.+@.+\..+/
-  ALLOWED_COLOR = /\A([[:xdigit:]]{3}){1,2}\z/
+  ALLOWED_COLOR = /\A#([[:xdigit:]]{3}){1,2}\z/
 
   attr_accessor :password
 

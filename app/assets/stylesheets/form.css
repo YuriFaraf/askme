@@ -40,9 +40,5 @@ form {
 }
 
 .color-form {
-    margin-left: 20px;
-}
-
-.color-form::before {
-    content: '#';
+    display: inline;
 }

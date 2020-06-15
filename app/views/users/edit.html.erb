@@ -29,8 +29,8 @@
       </div>
 
       <div class="form-field">
-        <%= f.label 'Цвет фона вашего профиля (3 или 6 -значное шестнадцатиричное число, формат RGB):', class: 'form-label' %>
-        <%= f.text_field :color, class: 'form-text-field color-form' %>
+        <%= f.label 'Цвет фона вашего профиля:', class: 'form-label color-form' %>
+        <%= color_field(:user, :color, class: 'color-form') %>
       </div>
 
       <div class="buffer-top-large buffer-bottom">
