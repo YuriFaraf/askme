@@ -5,8 +5,9 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  ALLOWED_USERNAME = /\A[a-z\d_]+\z/i
-  ALLOWED_EMAIL = /.+@.+\..+/i
+  ALLOWED_USERNAME = /\A[a-z\d_]+\z/
+  ALLOWED_EMAIL = /.+@.+\..+/
+  ALLOWED_COLOR = /\A([[:xdigit:]]{3}){1,2}\z/
 
   attr_accessor :password
 
@@ -15,6 +16,8 @@ class User < ApplicationRecord
   validates :username, length: { maximum: 40 }, presence: true, uniqueness: true, format: { with: ALLOWED_USERNAME }
 
   validates :email, presence: true, uniqueness: true, format: { with: ALLOWED_EMAIL }
+
+  validates :color, format: { with: ALLOWED_COLOR }
 
   validates_presence_of :password, on: :create
   validates_confirmation_of :password

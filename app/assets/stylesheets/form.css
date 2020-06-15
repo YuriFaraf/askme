@@ -38,3 +38,11 @@ form {
     list-style: none;
     margin-bottom: 10px;
 }
+
+.color-form {
+    margin-left: 20px;
+}
+
+.color-form::before {
+    content: '#';
+}
