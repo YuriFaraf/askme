@@ -30,7 +30,7 @@
 
       <div class="form-field">
         <%= f.label 'Цвет фона вашего профиля:', class: 'form-label color-form' %>
-        <%= color_field(:user, :color, class: 'color-form') %>
+        <%= f.color_field :color, class: 'color-form' %>
       </div>
 
       <div class="buffer-top-large buffer-bottom">
