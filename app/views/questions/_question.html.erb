@@ -1,6 +1,3 @@
-<% questions ||= nil %>
-<% action_icon = question.answer.blank? ? 'reply' : 'pencil' %>
-
 <div class="question">
   <div class="question-content">
     <div class="question-text text-lead">
@@ -15,8 +12,7 @@
 
     <% if question.author.present? %>
       <div class="question-date">
-        Вопрос от <%= link_to "@#{User.find_by(id: question[:author_id]).username}",
-                    user_path(User.find_by(id: question[:author_id])) %>
+        Вопрос от <%= link_to "@#{question.author.username}", user_path(question.author) %>
       </div>
     <% end %>
 
@@ -26,8 +22,9 @@
   </div>
 
   <% if question.user == current_user %>
+    <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
     <div class="question-actions">
-      <%= link_to fa_icon(action_icon), edit_question_path(question) %>
+      <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
       <%= link_to fa_icon('trash-o'), question_path(question), method: :delete, data: {confirm: 'Точно удалить вопрос?'} %>
     </div>
   <% end %>
