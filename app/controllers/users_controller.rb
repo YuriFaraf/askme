@@ -36,7 +36,6 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    @user.questions.destroy_all
     @user.destroy
     flash[:success] = "Пользователь удален."
     redirect_to root_path
