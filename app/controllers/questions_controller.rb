@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-
+    @question.author = current_user
     if @question.save
       redirect_to user_path(@question.user), notice: 'Вопрос успешно задан.'
     else
@@ -41,8 +41,6 @@ class QuestionsController < ApplicationController
 
   def question_params
     if current_user.present?
-      # params[:question][:author_id] = current_user.id
-      @question.author = current_user
       if params[:question][:user_id].to_i == current_user.id
         params.require(:question).permit(:user_id, :text, :answer, :author_id)
       else
