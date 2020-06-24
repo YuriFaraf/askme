@@ -12,6 +12,7 @@ class User < ApplicationRecord
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
+  has_many :no_anon_questions, class_name: 'Question', foreign_key: :author_id, dependent: :nullify
 
   validates :username, length: { maximum: 40 }, presence: true, uniqueness: true, format: { with: ALLOWED_USERNAME }
 

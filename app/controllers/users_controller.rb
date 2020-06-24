@@ -36,9 +36,6 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    Question.where(author_id: @user[:id]).find_each do |question|
-      question.update(author_id: nil)
-    end
     @user.destroy
     flash[:success] = "Пользователь удален."
     redirect_to root_path
