@@ -1,0 +1,21 @@
+<div class="content-wrapper buffer-both text-center">
+  <div class="buffer-both">
+    <h1 class="title-medium"><%= @hashtag.text %></h1>
+  </div>
+
+  <div class="flex-section-row">
+    <% @questions.each do |question|%>
+      <div class="question-content">
+        <div class="question-text text-lead">
+          <%= question.text %>
+        </div>
+        <div class="question-answer text-lead">
+          <%= question.answer %>
+        </div>
+        <div class="question-text">
+          <%= link_to question.user.username, user_path(question.user), class: "author-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

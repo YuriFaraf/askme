@@ -8,6 +8,17 @@
       <div class="user-image-div user-image-div-small">
         <%= link_to image_tag(user_avatar(user), class: 'user-image'), user_path(user) %>
       </div>
+      <div class="question-text">
+        <%= user.username %>
+      </div>
     </div>
   <% end %>
+
+  <div class="text-left buffer-top-large">
+    <% @hashtags.each do |hashtag| %>
+      <span class="buffer-both">
+        <%= link_to "##{hashtag.text}", hashtag_path(hashtag.text), class: 'author-link' %>
+      </span>
+    <% end %>
+  </div>
 </div>
