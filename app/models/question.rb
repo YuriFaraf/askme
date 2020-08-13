@@ -15,7 +15,7 @@ class Question < ApplicationRecord
     self.hashtags =
         "#{answer} #{text}".
             downcase.
-            scan(Hashtag::REGEXP_H).
+            scan(Hashtag::REGEXP).
             uniq.
             map { |ht| Hashtag.find_or_create_by(text: ht.delete('#')) }
   end

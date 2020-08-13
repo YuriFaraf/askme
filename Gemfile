@@ -17,6 +17,8 @@ gem 'webpacker', '~> 5.1'
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# чуствую себя жертвой агрессивного маркетинга
+gem 'where_exists'
 
 gem 'uglifier'
 
